@@ -1,0 +1,5 @@
+[core]
+    remote = labstore
+['remote "labstore"']
+    url = s3://income-lab-lovanlong-2a202602541/dvc
+    credentialpath = ../sa-key.ini

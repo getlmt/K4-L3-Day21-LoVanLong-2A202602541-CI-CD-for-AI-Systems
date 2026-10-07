@@ -27,13 +27,13 @@ HƯỚNG DẪN - đọc rồi XÓA TOÀN BỘ các khối chú thích này sau k
 
 | Lần chạy | n_estimators | learning_rate | max_depth | f1_score | accuracy |
 |---|---|---|---|---|---|
-| 1 | ___ | ___ | ___ | ___ | ___ |
-| 2 | ___ | ___ | ___ | ___ | ___ |
-| 3 | ___ | ___ | ___ | ___ | ___ |
+| 1 | 100 | 0.1 | 3 | 0.7109 | 0.8780 |
+| 2 | 50 | 0.05 | 2 | 0.6051 | 0.8460 |
+| 3 | 200 | 0.1 | 5 | 0.7149 | 0.8740 |
 
-**Bộ siêu tham số đã chọn:** `n_estimators=___`, `learning_rate=___`, `max_depth=___`.
+**Bộ siêu tham số đã chọn:** `n_estimators=200`, `learning_rate=0.1`, `max_depth=5`.
 
-**Lý do:** ___
+**Lý do:** Bộ này cho f1_score cao nhất (0,7149) trên tập holdout và vượt ngưỡng 0,65 của Quality Gate. Lần có accuracy cao nhất là lần 1 (0,878), không trùng với lần có F1 cao nhất. Accuracy của ba lần chỉ chênh nhau khoảng 3 điểm phần trăm, trong khi F1 dao động từ 0,605 đến 0,715, cho thấy accuracy bị lớp đa số chi phối và không phản ánh khả năng nhận diện người thu nhập cao. Lần 2 dùng learning_rate nhỏ (0,05) nhưng lại giảm số cây xuống 50, trong khi learning_rate nhỏ cần nhiều cây hơn để bù lại, nên mô hình học chưa đủ và F1 rơi xuống dưới ngưỡng. Tăng độ sâu lên 5 và số cây lên 200 giúp mô hình học được tương tác giữa các đặc trưng, tuy mức tăng F1 so với lần 1 khá nhỏ (+0,004) vì tập holdout chỉ có 500 mẫu.
 
 <!--
 Trả lời trong phần Lý do:
